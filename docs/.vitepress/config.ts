@@ -46,7 +46,91 @@ export default withMermaid(
             },
           ],
         },
+        {
+          text: "Part II — Core Capabilities",
+          items: [
+            {
+              text: "4 · Streaming & memory",
+              link: "/part-2-core/04-streaming-memory",
+            },
+            {
+              text: "5 · Structured output",
+              link: "/part-2-core/05-structured-output",
+            },
+            {
+              text: "6 · The ToolLoopAgent",
+              link: "/part-2-core/06-toolloop-agent",
+            },
+            {
+              text: "7 · RAG — embeddings & retrieval",
+              link: "/part-2-core/07-rag",
+            },
+          ],
+        },
+        {
+          text: "Part III — Production Hardening",
+          items: [
+            {
+              text: "8 · Robust agents",
+              link: "/part-3-hardening/08-robust-agents",
+            },
+            {
+              text: "9 · Human-in-the-loop",
+              link: "/part-3-hardening/09-human-in-the-loop",
+            },
+            {
+              text: "10 · Security & safety",
+              link: "/part-3-hardening/10-security",
+            },
+            {
+              text: "11 · Observability & cost",
+              link: "/part-3-hardening/11-observability",
+            },
+            {
+              text: "12 · Testing & evaluating",
+              link: "/part-3-hardening/12-testing-evals",
+            },
+          ],
+        },
+        {
+          text: "Part IV — Architecture & Scale",
+          items: [
+            {
+              text: "13 · Multi-agent orchestration",
+              link: "/part-4-architecture/13-multi-agent",
+            },
+            {
+              text: "14 · Capstone walkthrough",
+              link: "/part-4-architecture/14-capstone",
+            },
+            {
+              text: "15 · Build your own agent",
+              link: "/part-4-architecture/15-build-your-own",
+            },
+            {
+              text: "16 · Deploying in production",
+              link: "/part-4-architecture/16-deployment",
+            },
+          ],
+        },
+        {
+          text: "Appendix",
+          items: [
+            {
+              text: "SDK cheat-sheet",
+              link: "/appendix/sdk-cheatsheet",
+            },
+            {
+              text: "Glossary",
+              link: "/appendix/glossary",
+            },
+          ],
+        },
       ],
+
+
+
+
 
       socialLinks: [
         {

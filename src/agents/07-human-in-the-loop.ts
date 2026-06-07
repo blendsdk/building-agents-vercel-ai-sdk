@@ -32,6 +32,7 @@ import { stdin as input, stdout as output } from "node:process";
  * Ask the human a yes/no question in the terminal. Returns true for approval.
  * Defaults to "deny" on empty/EOF input — fail safe.
  */
+// #region approval
 async function askApproval(question: string): Promise<boolean> {
   const rl = readline.createInterface({ input, output });
   try {
@@ -43,10 +44,13 @@ async function askApproval(question: string): Promise<boolean> {
     rl.close();
   }
 }
+// #endregion approval
+
 
 /**
  * A SENSITIVE tool: sending an email. Its execute() gates on human approval.
  */
+// #region sensitive-tool
 const sendEmail = tool({
   description:
     "Send an email to a recipient. This is a sensitive action that requires " +
@@ -74,6 +78,8 @@ const sendEmail = tool({
     return { ok: true, status: "SENT", to, subject };
   },
 });
+// #endregion sensitive-tool
+
 
 /**
  * A SAFE tool: looking up a contact. No approval needed — it just reads data.

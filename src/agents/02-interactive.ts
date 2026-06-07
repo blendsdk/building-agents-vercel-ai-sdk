@@ -37,7 +37,10 @@ export async function runInteractiveAgent() {
 
   // The conversation history: only user/assistant/tool turns get appended here.
   // Passing this whole array every turn is what gives the agent its memory.
+  // #region memory-init
   const messages: ModelMessage[] = [];
+  // #endregion memory-init
+
 
   // readline gives us an async prompt loop in the terminal.
   const rl = readline.createInterface({ input, output });
@@ -59,6 +62,7 @@ export async function runInteractiveAgent() {
         break;
       }
 
+      // #region turn
       // 1) Add the user's message to the running history.
       messages.push({ role: "user", content: userInput });
 
@@ -84,6 +88,8 @@ export async function runInteractiveAgent() {
       //    contains everything the model produced this turn in the right format.
       const { messages: newMessages } = await result.response;
       messages.push(...newMessages);
+      // #endregion turn
+
     }
   } finally {
     rl.close();

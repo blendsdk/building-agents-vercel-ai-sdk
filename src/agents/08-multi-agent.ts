@@ -51,6 +51,7 @@ const searchKnowledge = tool({
   },
 });
 
+// #region specialist
 const researchAgent = new ToolLoopAgent({
   model,
   instructions:
@@ -59,6 +60,8 @@ const researchAgent = new ToolLoopAgent({
   tools: { searchKnowledge },
   stopWhen: stepCountIs(5),
 });
+// #endregion specialist
+
 
 // ── Specialist #2: the Math agent ──────────────────────────────────────────
 const mathAgent = new ToolLoopAgent({
@@ -71,6 +74,7 @@ const mathAgent = new ToolLoopAgent({
 });
 
 // ── Wrap each specialist as a TOOL the supervisor can call ──────────────────
+// #region agent-as-tool
 const askResearcher = tool({
   description:
     "Delegate a factual/lookup question to the research specialist agent.",
@@ -82,6 +86,8 @@ const askResearcher = tool({
     return { answer: text };
   },
 });
+// #endregion agent-as-tool
+
 
 const askMathematician = tool({
   description:
@@ -96,6 +102,7 @@ const askMathematician = tool({
 });
 
 // ── The Supervisor: routes work to specialists and combines results ─────────
+// #region supervisor
 const supervisor = new ToolLoopAgent({
   model,
   instructions:
@@ -106,6 +113,8 @@ const supervisor = new ToolLoopAgent({
   tools: { askResearcher, askMathematician },
   stopWhen: stepCountIs(10),
 });
+// #endregion supervisor
+
 
 export async function runMultiAgent() {
   console.log("\n🤖 TUTORIAL 8 — Multi-agent orchestration\n");

@@ -40,6 +40,7 @@ import { z } from "zod";
  * A flaky "bank transfer" tool. It returns STRUCTURED ERRORS instead of
  * throwing, so the agent can read the problem and respond gracefully.
  */
+// #region structured-error
 const transferMoney = tool({
   description:
     "Transfer money between two accounts. Returns an error object if the " +
@@ -66,6 +67,8 @@ const transferMoney = tool({
     return { ok: true, fromAccount, toAccount, amount, confirmation: "TXN-12345" };
   },
 });
+// #endregion structured-error
+
 
 const tools = { transferMoney } satisfies ToolSet;
 
@@ -78,6 +81,7 @@ const tools = { transferMoney } satisfies ToolSet;
  * close to a real one, we don't guess — we return null. But if the JSON input
  * is malformed, we try to re-extract valid JSON from it.
  */
+// #region repair
 const repairToolCall: ToolCallRepairFunction<typeof tools> = async ({
   toolCall,
   error,
@@ -113,6 +117,8 @@ const repairToolCall: ToolCallRepairFunction<typeof tools> = async ({
     return null;
   }
 };
+// #endregion repair
+
 
 export async function runRobustAgent() {
   console.log("\n🤖 TUTORIAL 6 — Robust agents (error handling + repair)\n");

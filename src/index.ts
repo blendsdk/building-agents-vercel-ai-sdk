@@ -13,6 +13,8 @@
  *   Tutorial 8 (Multi-agent):  learn orchestration — agents that delegate.
  *   Tutorial 9 (Observability):learn tracing steps, token usage & cost.
  *   Tutorial 10 (Capstone):    a real support agent combining everything.
+ *   Tutorial 11 (Security):    learn prompt-injection defense + tool sandboxing.
+ *   Tutorial 12 (Evals):       learn deterministic scoring to gate agent quality.
  *
  * Run it with `yarn dev`. You can also skip the menu:
  *   yarn dev 1   → run the one-shot agent
@@ -25,8 +27,13 @@
  *   yarn dev 8   → run the multi-agent orchestration lesson
  *   yarn dev 9   → run the observability (steps/usage/cost) lesson
  *   yarn dev 10  → run the capstone support agent
+ *   yarn dev 11  → run the security (injection + sandboxing) lesson
+ *   yarn dev 12  → run the evals (deterministic scorer) lesson
+ *   yarn dev 13  → run the build-your-own Trip Planner (reference solution)
  * ----------------------------------------------------------------------------
  */
+
+
 
 import "dotenv/config";
 import * as readline from "node:readline/promises";
@@ -41,6 +48,11 @@ import { runHumanInLoopAgent } from "./agents/07-human-in-the-loop.js";
 import { runMultiAgent } from "./agents/08-multi-agent.js";
 import { runObservabilityAgent } from "./agents/09-observability.js";
 import { runCapstoneAgent } from "./agents/10-capstone.js";
+import { runSecurityAgent } from "./agents/11-security.js";
+import { runEvalsDemo } from "./agents/12-evals.js";
+import { runTripPlanner } from "./agents/13-byo-solution.js";
+
+
 
 async function main() {
   // Fail early with a friendly message if the API key is missing.
@@ -52,7 +64,8 @@ async function main() {
   // Allow choosing via CLI arg (e.g. `yarn dev 1`), otherwise show a menu.
   let choice = process.argv[2];
 
-  const valid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+  const valid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"];
+
   if (!valid.includes(choice ?? "")) {
     console.log("Which tutorial agent would you like to run?");
     console.log("  1) One-shot agent       (agent loop + tools)");
@@ -64,12 +77,17 @@ async function main() {
     console.log("  7) Human-in-the-loop    (approval gates for sensitive tools)");
     console.log("  8) Multi-agent          (supervisor delegates to specialists)");
     console.log("  9) Observability        (trace steps, token usage & cost)");
-    console.log(" 10) Capstone             (support agent combining everything)\n");
+    console.log(" 10) Capstone             (support agent combining everything)");
+    console.log(" 11) Security             (prompt-injection defense + sandboxing)");
+    console.log(" 12) Evals                (deterministic scoring for CI)");
+    console.log(" 13) Trip Planner         (build-your-own reference solution)\n");
 
     const rl = readline.createInterface({ input, output });
-    choice = (await rl.question("Enter 1–10: ")).trim();
+    choice = (await rl.question("Enter 1–13: ")).trim();
+
     rl.close();
   }
+
 
   switch (choice) {
     case "1":
@@ -102,7 +120,18 @@ async function main() {
     case "10":
       await runCapstoneAgent();
       break;
+    case "11":
+      await runSecurityAgent();
+      break;
+    case "12":
+      await runEvalsDemo();
+      break;
+    case "13":
+      await runTripPlanner();
+      break;
     default:
+
+
       console.log("No valid choice made. Exiting.");
   }
 }

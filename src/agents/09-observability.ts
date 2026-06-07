@@ -53,6 +53,7 @@ export async function runObservabilityAgent() {
     stopWhen: stepCountIs(10),
 
     // 1) LIVE telemetry: this fires after every step as the agent runs.
+    // #region on-step-finish
     onStepFinish: ({ toolCalls, usage }) => {
       const names = toolCalls.map((c) => c.toolName).join(", ") || "(final answer)";
       console.log(
@@ -60,7 +61,9 @@ export async function runObservabilityAgent() {
           `step tokens: ${usage.totalTokens ?? "?"}`,
       );
     },
+    // #endregion on-step-finish
   });
+
 
   // 2) POST-RUN report: walk result.steps for a detailed trace.
   console.log("\n📊 Step-by-step trace:\n");

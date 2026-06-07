@@ -57,6 +57,7 @@ type StoredDoc = { text: string; embedding: number[] };
  * embeddings/network (see `rag-ranking.spec.test.ts`). `Array.prototype.sort` is
  * stable in modern engines, so equal scores preserve input order (ST-14).
  */
+// #region rank
 export function rankBySimilarity(
   queryVec: number[],
   docs: StoredDoc[],
@@ -67,6 +68,8 @@ export function rankBySimilarity(
     .sort((a, b) => b.score - a.score)
     .slice(0, k);
 }
+// #endregion rank
+
 
 
 /**
@@ -113,6 +116,7 @@ export async function runRagAgent() {
   console.log();
 
   // PART 2 — wrap retrieval as a TOOL the agent can call on demand.
+  // #region search-tool
   const searchKnowledge = tool({
     description:
       "Search Acme Corp's internal knowledge base for facts about products, " +
@@ -125,6 +129,8 @@ export async function runRagAgent() {
       return { results };
     },
   });
+  // #endregion search-tool
+
 
   // PART 3 — ask the agent some questions. It retrieves, then answers grounded
   // in the docs. The last question is intentionally NOT in the knowledge base.

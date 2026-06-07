@@ -43,6 +43,7 @@ async function demoExtraction() {
     "Sam, Priya, and Diego have confirmed, and probably Lena too. " +
     "Bring your laptops — we'll demo the new dashboard.";
 
+  // #region extraction
   // Describe EXACTLY the JSON shape we want. The .describe() hints guide the model.
   const schema = z.object({
     eventName: z.string().describe("A short name for the event"),
@@ -59,6 +60,8 @@ async function demoExtraction() {
     prompt: `Extract structured event details from this message:\n\n${text}`,
     output: Output.object({ schema }),
   });
+  // #endregion extraction
+
 
   console.log("Input text:\n  " + text + "\n");
   console.log("Extracted object (typed!):");
@@ -142,6 +145,7 @@ async function demoStreaming() {
 async function demoToolsPlusJson() {
   console.log("\n🤝 DEMO 4 — Tools + structured JSON final answer\n");
 
+  // #region tools-plus-json
   const { output } = await generateText({
     model,
     tools,
@@ -158,6 +162,8 @@ async function demoToolsPlusJson() {
       }),
     }),
   });
+  // #endregion tools-plus-json
+
 
   console.log("Structured agent result:");
   console.log(JSON.stringify(output, null, 2));

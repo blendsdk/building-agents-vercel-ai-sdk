@@ -2,8 +2,12 @@
 
 > **Document**: 99-execution-plan.md
 > **Parent**: [Index](00-index.md)
-> **Last Updated**: 2026-06-07 20:26
-> **Progress**: 26/54 tasks (48%) — Phases 0–2 complete (44 tests green; docs build OK)
+> **Last Updated**: 2026-06-07 21:48
+> **Progress**: 52/54 tasks (96%) — Phases 0–5 complete + appendix & final verify (51 tests green; docs build OK). Remaining: deploy (6.1.4) + post-deploy refresh (6.1.5).
+
+
+
+
 
 > **CodeOps Version**: codeops-mcp 1.13.0
 
@@ -236,40 +240,46 @@ Build the VitePress masterclass and ship it to GitHub Pages. Work proceeds part-
 
 
 ### Phase 3: Part II
-- [ ] 3.1.1 Lesson 4
-- [ ] 3.1.2 Lesson 5
-- [ ] 3.1.3 Lesson 6
-- [ ] 3.1.4 Lesson 7
-- [ ] 3.1.5 Sidebar + build
+- [x] 3.1.1 Lesson 4 ✅ (completed: 2026-06-07 21:20)
+- [x] 3.1.2 Lesson 5 ✅ (completed: 2026-06-07 21:20)
+- [x] 3.1.3 Lesson 6 ✅ (completed: 2026-06-07 21:21)
+- [x] 3.1.4 Lesson 7 ✅ (completed: 2026-06-07 21:22)
+- [x] 3.1.5 Sidebar + build ✅ (completed: 2026-06-07 21:23 — docs:build OK, 44 tests green)
+
 
 ### Phase 4: Part III
-- [ ] 4.1.1 `11-security.ts`
-- [ ] 4.1.2 Wire menu + smoke
-- [ ] 4.1.3 Structural tests for security
-- [ ] 4.2.1 Lesson 8
-- [ ] 4.2.2 Lesson 9
-- [ ] 4.2.3 Lesson 10
-- [ ] 4.2.4 Lesson 11
-- [ ] 4.2.5 Lesson 12
-- [ ] 4.2.6 Sidebar + build
+- [x] 4.1.1 `11-security.ts` ✅ (completed: 2026-06-07 21:29)
+- [x] 4.1.2 Wire menu + smoke ✅ (completed: 2026-06-07 21:29 — `yarn dev 11` runs)
+- [x] 4.1.3 Structural tests for security ✅ (completed: 2026-06-07 21:30 — ST-23…26, 48 tests green)
+
+- [x] 4.2.1 Lesson 8 ✅ (completed: 2026-06-07 21:32)
+- [x] 4.2.2 Lesson 9 ✅ (completed: 2026-06-07 21:33)
+- [x] 4.2.3 Lesson 10 ✅ (completed: 2026-06-07 21:33)
+- [x] 4.2.4 Lesson 11 ✅ (completed: 2026-06-07 21:34)
+- [x] 4.2.5 Lesson 12 ✅ (completed: 2026-06-07 21:35)
+- [x] 4.2.6 Sidebar + build ✅ (completed: 2026-06-07 21:35 — docs:build OK, 48 tests green)
+
 
 ### Phase 5: Part IV
-- [ ] 5.1.1 `13-byo-solution.ts`
-- [ ] 5.1.2 `13-byo-starter.ts`
-- [ ] 5.1.3 BYO structural test
-- [ ] 5.1.4 Smoke + `yarn test`
-- [ ] 5.2.1 Lesson 13
-- [ ] 5.2.2 Lesson 14
-- [ ] 5.2.3 Lesson 15
-- [ ] 5.2.4 Lesson 16
-- [ ] 5.2.5 Sidebar + build
+- [x] 5.1.1 `13-byo-solution.ts` ✅ (completed: 2026-06-07 21:40)
+- [x] 5.1.2 `13-byo-starter.ts` ✅ (completed: 2026-06-07 21:40 — typechecks under strict, PF-008)
+- [x] 5.1.3 BYO structural test ✅ (completed: 2026-06-07 21:40 — ST-27…29)
+- [x] 5.1.4 Smoke + `yarn test` ✅ (completed: 2026-06-07 21:41 — `yarn dev 13` OK, build clean, 51 tests green)
+
+- [x] 5.2.1 Lesson 13 ✅ (completed: 2026-06-07 21:42)
+- [x] 5.2.2 Lesson 14 ✅ (completed: 2026-06-07 21:43)
+- [x] 5.2.3 Lesson 15 ✅ (completed: 2026-06-07 21:44)
+- [x] 5.2.4 Lesson 16 ✅ (completed: 2026-06-07 21:45)
+- [x] 5.2.5 Sidebar + build ✅ (completed: 2026-06-07 21:45 — docs:build OK, 51 tests green)
+
 
 ### Phase 6: Ship
-- [ ] 6.1.1 SDK cheat-sheet
-- [ ] 6.1.2 Glossary
-- [ ] 6.1.3 Final test + build
+- [x] 6.1.1 SDK cheat-sheet ✅ (completed: 2026-06-07 21:46)
+- [x] 6.1.2 Glossary ✅ (completed: 2026-06-07 21:47 — appendix wired into sidebar)
+- [x] 6.1.3 Final test + build ✅ (completed: 2026-06-07 21:48 — 51 tests green, docs:build OK)
 - [ ] 6.1.4 Deploy + verify live
 - [ ] 6.1.5 Refresh `project.md`
+
 
 ---
 

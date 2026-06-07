@@ -103,7 +103,9 @@ export async function runCapstoneAgent() {
   });
 
   // Sensitive tool — escalation requires human approval (Tutorial 7).
+  // #region escalate
   const escalateToHuman = tool({
+
     description:
       "Escalate the issue to a human support agent. Use only when you cannot " +
       "resolve it from the knowledge base, or the customer explicitly asks.",
@@ -122,8 +124,10 @@ export async function runCapstoneAgent() {
         : { ok: false, status: "ESCALATION_DENIED", message: "A human declined escalation; try to resolve it yourself." };
     },
   });
+  // #endregion escalate
 
   // The capstone agent (Tutorial 4) with structured output (Tutorial 3).
+  // #region agent
   const supportAgent = new ToolLoopAgent({
     model: openai("gpt-4o-mini"),
     instructions:
@@ -134,6 +138,8 @@ export async function runCapstoneAgent() {
     stopWhen: stepCountIs(8),
     output: Output.object({ schema: ticketSchema }),
   });
+  // #endregion agent
+
 
   // Two scenarios: one answerable from the KB, one that needs escalation.
   const questions = [

@@ -39,6 +39,7 @@ export interface ScoreResult {
  *
  * An empty `mustInclude` list scores 1 (nothing required is trivially satisfied).
  */
+// #region score-answer
 export function scoreAnswer(output: string, criteria: ScoreCriteria): ScoreResult {
   const haystack = output.toLowerCase();
   const required = criteria.mustInclude;
@@ -55,6 +56,8 @@ export function scoreAnswer(output: string, criteria: ScoreCriteria): ScoreResul
 
   return { score, passed };
 }
+// #endregion score-answer
+
 
 /**
  * A tiny demo eval suite: score a few canned answers and print a report.

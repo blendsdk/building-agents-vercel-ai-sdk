@@ -36,6 +36,7 @@ import { marked } from "../markdown.js";
  * Define the agent ONCE. Everything it needs is captured here, so callers don't
  * have to repeat the model/tools/persona on every request.
  */
+// #region construct
 const assistant = new ToolLoopAgent({
   model: openai("gpt-4o-mini"),
   instructions:
@@ -44,6 +45,8 @@ const assistant = new ToolLoopAgent({
   tools,
   stopWhen: stepCountIs(10), // the agent loop, just like Tutorials 1 & 2
 });
+// #endregion construct
+
 
 /**
  * DEMO 1 — Reuse the SAME agent for multiple, unrelated requests.
@@ -90,6 +93,7 @@ async function demoStream() {
 async function demoStructuredAgent() {
   console.log("📦 DEMO 3 — A specialized agent that returns JSON\n");
 
+  // #region structured
   const tripPlanner = new ToolLoopAgent({
     model: openai("gpt-4o-mini"),
     instructions:
@@ -107,6 +111,8 @@ async function demoStructuredAgent() {
       }),
     }),
   });
+  // #endregion structured
+
 
   const result = await tripPlanner.generate({
     prompt: "Plan an activity for Amsterdam today.",
