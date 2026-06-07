@@ -3,7 +3,7 @@
 > **Document**: 99-execution-plan.md
 > **Parent**: [Index](00-index.md)
 > **Last Updated**: 2026-06-07
-> **Progress**: 12/54 tasks (22%) — Phase 0 complete
+> **Progress**: 21/54 tasks (39%) — Phases 0 & 1 complete (44 tests green; docs build OK)
 > **CodeOps Version**: codeops-mcp 1.13.0
 
 
@@ -216,15 +216,15 @@ Build the VitePress masterclass and ship it to GitHub Pages. Work proceeds part-
 
 
 ### Phase 1: Testing infra
-- [ ] 1.1.1 `vitest.config.ts`
-- [ ] 1.1.2 Export `safeEvaluate` + spec tests (ST-1…10)
-- [ ] 1.1.3 Extract `rankBySimilarity` + spec tests (ST-11…15)
-- [ ] 1.1.4 `evals.spec.test.ts` (ST-16…20)
-- [ ] 1.1.5 Verify red phase
-- [ ] 1.2.1 Implement `scoreAnswer`
-- [ ] 1.2.2 Mock model + wiring spec tests (ST-21…22)
-- [ ] 1.2.3 Impl tests
-- [ ] 1.2.4 `yarn test` green
+- [x] 1.1.1 `vitest.config.ts` ✅ (completed: 2026-06-07)
+- [x] 1.1.2 Export `safeEvaluate` + spec tests (ST-1…10) ✅ (completed: 2026-06-07)
+- [x] 1.1.3 Extract `rankBySimilarity` + spec tests (ST-11…15) ✅ (completed: 2026-06-07)
+- [x] 1.1.4 `evals.spec.test.ts` (ST-16…20) ✅ (completed: 2026-06-07)
+- [x] 1.1.5 Verify red phase ✅ (completed: 2026-06-07)
+- [x] 1.2.1 Implement `scoreAnswer` ✅ (completed: 2026-06-07)
+- [x] 1.2.2 Mock model + wiring spec tests (ST-21…22) ✅ (completed: 2026-06-07)
+- [x] 1.2.3 Impl tests ✅ (completed: 2026-06-07)
+- [x] 1.2.4 `yarn test` green ✅ (completed: 2026-06-07 — 44 tests pass; docs:build OK)
 
 ### Phase 2: Part I
 - [ ] 2.1.1 Region markers

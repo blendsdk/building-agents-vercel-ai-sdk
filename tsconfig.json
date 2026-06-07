@@ -41,5 +41,8 @@
 
         "rootDir": "./src",
         "outDir": "./dist"
-    }
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["src/**/*.spec.test.ts", "src/**/*.impl.test.ts", "dist", "node_modules"]
 }
+

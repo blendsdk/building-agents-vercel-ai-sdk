@@ -70,11 +70,15 @@ export const calculator = tool({
 /**
  * A minimal recursive-descent parser/evaluator for arithmetic.
  * Only digits, '.', whitespace, + - * / and parentheses are allowed.
+ *
+ * Exported so it can be unit-tested directly (see `tools.spec.test.ts`).
+ * Exporting does not change its runtime behavior.
  */
-function safeEvaluate(input: string): number {
+export function safeEvaluate(input: string): number {
   if (!/^[\d.\s+\-*/()]+$/.test(input)) {
     throw new Error("Expression contains invalid characters.");
   }
+
 
   let pos = 0;
 

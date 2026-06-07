@@ -50,6 +50,26 @@ const embeddingModel = openai.embedding("text-embedding-3-small");
 type StoredDoc = { text: string; embedding: number[] };
 
 /**
+ * Rank documents by cosine similarity to a query vector, descending, and return
+ * the top-`k`. A scored copy of each doc is returned (`{ text, score }`).
+ *
+ * Extracted as a PURE helper so it can be unit-tested with fixed vectors and no
+ * embeddings/network (see `rag-ranking.spec.test.ts`). `Array.prototype.sort` is
+ * stable in modern engines, so equal scores preserve input order (ST-14).
+ */
+export function rankBySimilarity(
+  queryVec: number[],
+  docs: StoredDoc[],
+  k = 3,
+): { text: string; score: number }[] {
+  return docs
+    .map((doc) => ({ text: doc.text, score: cosineSimilarity(queryVec, doc.embedding) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, k);
+}
+
+
+/**
  * Build the vector store once: embed every document in a single batch call.
  */
 async function buildVectorStore(): Promise<StoredDoc[]> {
@@ -72,11 +92,9 @@ async function retrieve(store: StoredDoc[], query: string, k = 3) {
   });
 
   // Score every document by cosine similarity, then take the best K.
-  return store
-    .map((doc) => ({ text: doc.text, score: cosineSimilarity(queryVec, doc.embedding) }))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, k);
+  return rankBySimilarity(queryVec, store, k);
 }
+
 
 export async function runRagAgent() {
   console.log("\n🤖 TUTORIAL 5 — RAG (embeddings + retrieval)\n");
