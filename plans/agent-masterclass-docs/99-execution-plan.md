@@ -3,8 +3,9 @@
 > **Document**: 99-execution-plan.md
 > **Parent**: [Index](00-index.md)
 > **Last Updated**: 2026-06-07
-> **Progress**: 0/54 tasks (0%)
+> **Progress**: 12/54 tasks (22%) — Phase 0 complete
 > **CodeOps Version**: codeops-mcp 1.13.0
+
 
 ## Overview
 
@@ -200,18 +201,19 @@ Build the VitePress masterclass and ship it to GitHub Pages. Work proceeds part-
 > 5. Never batch updates — update immediately after each task.
 
 ### Phase 0: Foundation
-- [ ] 0.1.1 Generate `.clinerules/project.md`
-- [ ] 0.1.2 VitePress + Mermaid deps + `docs:*` scripts
-- [ ] 0.1.3 Vitest deps + `test*` scripts
-- [ ] 0.1.4 Update `.gitignore`
-- [ ] 0.2.1 VitePress `config.ts`
-- [ ] 0.2.2 Theme entry + `.nojekyll`
-- [ ] 0.2.3 Landing page
-- [ ] 0.2.4 getting-started + prerequisites
-- [ ] 0.2.5 Verify `docs:build`
-- [ ] 0.3.1 Git remote + rename to `main`
-- [ ] 0.3.2 Deploy workflow
-- [ ] 0.3.3 `DEPLOYMENT.md`
+- [x] 0.1.1 Generate `.clinerules/project.md`
+- [x] 0.1.2 VitePress + Mermaid deps + `docs:*` scripts
+- [x] 0.1.3 Vitest deps + `test*` scripts
+- [x] 0.1.4 Update `.gitignore`
+- [x] 0.2.1 VitePress `config.ts`
+- [x] 0.2.2 Theme entry + `.nojekyll`
+- [x] 0.2.3 Landing page
+- [x] 0.2.4 getting-started + prerequisites
+- [x] 0.2.5 Verify `docs:build`
+- [x] 0.3.1 Git remote + rename to `main`
+- [x] 0.3.2 Deploy workflow
+- [x] 0.3.3 `DEPLOYMENT.md`
+
 
 ### Phase 1: Testing infra
 - [ ] 1.1.1 `vitest.config.ts`

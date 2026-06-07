@@ -9,6 +9,13 @@ node_modules/
 # Build output
 dist/
 
+# VitePress
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+docs/.vitepress/.temp/
+
+
+
 # Logs
 *.log
 npm-debug.log*
