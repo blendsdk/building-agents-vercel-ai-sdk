@@ -31,6 +31,7 @@ export async function runOneShotAgent(
   console.log("\n🤖 TUTORIAL 1 — One-shot agent\n");
   console.log(`📋 Task: ${task}\n`);
 
+  // #region loop
   const result = await generateText({
     // 1) Pick the model. `openai(...)` reads OPENAI_API_KEY from the env.
     model: openai("gpt-4o-mini"),
@@ -50,6 +51,7 @@ export async function runOneShotAgent(
     //    can all happen in one `generateText` call. This is the agent loop.
     stopWhen: stepCountIs(10),
   });
+  // #endregion loop
 
   // ---- Observe the loop --------------------------------------------------
   // `result.steps` lets us SEE what the agent did at each step: which tools it

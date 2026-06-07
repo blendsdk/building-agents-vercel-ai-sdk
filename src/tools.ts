@@ -28,6 +28,7 @@ import { z } from "zod";
  * mock data so the tutorial runs without extra API keys. The point is to show
  * how the model passes structured input (a city) and receives structured output.
  */
+// #region weather-tool
 export const getWeather = tool({
   description:
     "Get the current weather for a given city. Use this whenever the user asks about weather.",
@@ -44,6 +45,8 @@ export const getWeather = tool({
     return { city, condition, temperatureC, unit: "°C" };
   },
 });
+// #endregion weather-tool
+
 
 /**
  * A small, SAFE calculator tool.
@@ -52,6 +55,7 @@ export const getWeather = tool({
  * arithmetic grammar (numbers, + - * / ( ) and decimals) and parse it ourselves.
  * This demonstrates the model deciding to "compute" rather than guess at math.
  */
+// #region calculator-tool
 export const calculator = tool({
   description:
     "Evaluate a basic arithmetic expression (supports + - * / parentheses and decimals). " +
@@ -66,6 +70,8 @@ export const calculator = tool({
     return { expression, result };
   },
 });
+// #endregion calculator-tool
+
 
 /**
  * A minimal recursive-descent parser/evaluator for arithmetic.
@@ -74,10 +80,12 @@ export const calculator = tool({
  * Exported so it can be unit-tested directly (see `tools.spec.test.ts`).
  * Exporting does not change its runtime behavior.
  */
+// #region safe-evaluate
 export function safeEvaluate(input: string): number {
   if (!/^[\d.\s+\-*/()]+$/.test(input)) {
     throw new Error("Expression contains invalid characters.");
   }
+
 
 
   let pos = 0;
@@ -137,12 +145,16 @@ export function safeEvaluate(input: string): number {
   if (pos !== input.length) throw new Error("Unexpected trailing characters.");
   return result;
 }
+// #endregion safe-evaluate
 
 /**
  * Bundle the tools into a single object. The keys ("getWeather", "calculator")
  * are the names the model uses when it decides to call a tool.
  */
+// #region tools-bundle
 export const tools = {
   getWeather,
   calculator,
 };
+// #endregion tools-bundle
+

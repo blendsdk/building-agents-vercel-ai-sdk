@@ -2,8 +2,9 @@
 
 > **Document**: 99-execution-plan.md
 > **Parent**: [Index](00-index.md)
-> **Last Updated**: 2026-06-07
-> **Progress**: 21/54 tasks (39%) — Phases 0 & 1 complete (44 tests green; docs build OK)
+> **Last Updated**: 2026-06-07 20:26
+> **Progress**: 26/54 tasks (48%) — Phases 0–2 complete (44 tests green; docs build OK)
+
 > **CodeOps Version**: codeops-mcp 1.13.0
 
 
@@ -227,11 +228,12 @@ Build the VitePress masterclass and ship it to GitHub Pages. Work proceeds part-
 - [x] 1.2.4 `yarn test` green ✅ (completed: 2026-06-07 — 44 tests pass; docs:build OK)
 
 ### Phase 2: Part I
-- [ ] 2.1.1 Region markers
-- [ ] 2.1.2 Lesson 1
-- [ ] 2.1.3 Lesson 2
-- [ ] 2.1.4 Lesson 3
-- [ ] 2.1.5 Sidebar + build
+- [x] 2.1.1 Region markers ✅ (completed: 2026-06-07 20:22)
+- [x] 2.1.2 Lesson 1 ✅ (completed: 2026-06-07 20:26)
+- [x] 2.1.3 Lesson 2 ✅ (completed: 2026-06-07 20:26)
+- [x] 2.1.4 Lesson 3 ✅ (completed: 2026-06-07 20:26)
+- [x] 2.1.5 Sidebar + build ✅ (completed: 2026-06-07 20:26 — docs:build OK, 44 tests green)
+
 
 ### Phase 3: Part II
 - [ ] 3.1.1 Lesson 4
