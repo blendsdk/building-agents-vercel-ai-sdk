@@ -1,0 +1,27 @@
+{
+    "name": "my_project",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc",
+        "dev": "tsx ./src/index.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+    "dependencies": {
+        "@ai-sdk/openai": "^3.0.68",
+        "@types/node": "^25.9.2",
+        "ai": "^6.0.197",
+        "dotenv": "^17.4.2",
+        "marked": "^18.0.5",
+        "marked-terminal-renderer": "^2.2.0",
+        "tsx": "^4.22.4",
+        "typescript": "^6.0.3",
+        "zod": "^4.4.3"
+    }
+}
