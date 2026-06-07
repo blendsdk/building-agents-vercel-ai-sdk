@@ -11,7 +11,7 @@
 
 Build the VitePress masterclass and ship it to GitHub Pages. Work proceeds part-by-part (AR #17) so content can be reviewed early. Specification-first testing is applied to all new deterministic code.
 
-> **⚠️ CI sequencing (PF-001):** Do **not** push `main` until Phase 1 tests land (or the Ship phase). The deploy workflow's `test` job runs `yarn test`; before Phase 1 there are no test files, so the CI `test` invocation uses `--passWithNoTests` to stay green. Early local commits are fine — just don't trigger the `main` workflow prematurely.
+> **✅ CI sequencing (PF-001 — RESOLVED 2026-06-07, preflight PF-016):** Phase 1 tests have landed (44 tests green), so the original "do not push `main` until Phase 1 tests land" caveat no longer applies — pushing `main` is now safe. The deploy workflow's `test` job keeps `--passWithNoTests` as harmless insurance (inert now that test files exist).
 
 **🚨 Update this document after EACH completed task!**
 

@@ -3,7 +3,17 @@
 > **Document**: 02-current-state.md
 > **Parent**: [Index](00-index.md)
 
+> ⚠️ **SUPERSEDED (2026-06-07, preflight PF-014).** This is a point-in-time
+> snapshot of the repo *before execution began*. **Phases 0 and 1 of the plan
+> have since been executed**, so the "What Exists" statements below are no longer
+> accurate: `docs/` (VitePress site), `.github/workflows/deploy.yml`,
+> `vitest.config.ts` + test files, and `.clinerules/project.md` now exist; git is
+> on branch `main` with commits and a configured `origin` remote. For live
+> status, see `99-execution-plan.md` (Master Progress Checklist). This document
+> is retained as historical context — do not treat it as current truth.
+
 ## Existing Implementation
+
 
 ### What Exists
 
